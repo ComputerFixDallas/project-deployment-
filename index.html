@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ComputerFixDallas - Complete Website</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f7fff7;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #2b7a0b;
+      color: white;
+      padding: 20px 40px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #c5f3c1;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, #2b7a0b, #68b684);
+      color: white;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .hero .btn {
+      padding: 12px 30px;
+      background: #c5f3c1;
+      color: #2b7a0b;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .hero .btn:hover {
+      background: white;
+      color: #2b7a0b;
+    }
+
+    /* Services Section */
+    .features-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .features-grid .feature {
+      width: 300px;
+      padding: 20px;
+      background: #c5f3c1;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .features-grid .feature:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .features-grid .feature h3 {
+      font-size: 1.5rem;
+      color: #2b7a0b;
+      margin-bottom: 10px;
+    }
+
+    .features-grid .feature p {
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    .features-grid .feature a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      background: #2b7a0b;
+      color: white;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .features-grid .feature a:hover {
+      background: #1a5717;
+    }
+
+    /* Testimonials Section */
+    .testimonial-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .testimonial-card {
+      width: 300px;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .testimonial-card h3 {
+      font-size: 1.2rem;
+      color: #2b7a0b;
+      margin-bottom: 10px;
+    }
+
+    .testimonial-card p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* FAQ Section */
+    .faq-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .faq-item {
+      background: #fff;
+      border: 2px solid #2b7a0b;
+      border-radius: 10px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .faq-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .faq-item h3 {
+      font-size: 1.5rem;
+      color: #2b7a0b;
+    }
+
+    .faq-item p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    /* Contact Section */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .contact-form label {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #2b7a0b;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .contact-form button {
+      padding: 10px 20px;
+      background: #2b7a0b;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #68b684;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 20px;
+      text-align: center;
+      background: #2b7a0b;
+      color: white;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      text-decoration: none;
+      color: #c5f3c1;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1>Welcome to ComputerFixDallas</h1>
+    <p>Your one-stop solution for reliable computer repairs and tech support in Dallas.</p>
+    <button class="btn" onclick="location.href='#services';">View Services</button>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="features-grid">
+      <div> <!-- Repeatable-->.
+        <div class="feature">
+          <h3>MacBook Repair</h3>
+          <p>Screen, battery, and hardware repairs for all MacBook models.</p>
+          <a href="#contact">Learn More</a>
+        </div>
+        <div class="feature">
+          <h3>PC Repair</h3>
+          <p>Expert diagnostics and repairs for Windows desktops and laptops.</p>
+          <a href="#contact">Learn More</a>
+        </div>
+        <div class="feature">
+          <h3>Data Recovery</h3>
+          <p>Recover lost files from hard drives, SSDs, USBs, and more.</p>
+          <a href="#contact">Learn More</a>
+        </div>
+        <div class="feature">
+          <h3>Phone Repair</h3>
+          <p>Quick and reliable fixes for smartphones, including screens and batteries.</p>
+          <a href="#contact">Learn More</a>
+        </div>
+        <div class="feature">
+          <h3>IT Tech Support</h3>
+          <p>Professional support for networking, setup, and troubleshooting.</p>
+          <a href="#contact">Learn More</a>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+      <h2>What Our Clients Say</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <h3>John Doe</h3>
+          <p>"Quick and reliable service. My MacBook is as good as new!"</p>
+        </div>
+        <div class="testimonial-card">
+          <h3>Jane Smith</h3>
+          <p>"They recovered my data in no time. Highly recommend them!"</p>
+        </div>
+        <div class="testimonial-card">
+          <h3>Chris Lee</h3>
+          <p>"Amazing service! Their team fixed my PC issues quickly."</p>
+        </div>
+        <div class="testimonial-card">
+          <h3>Rachel Adams</h3>
+          <p>"I’ve never had such fast and friendly tech support. Great work!"</p>
+        </div>
+        <div class="testimonial-card">
+          <h3>Mark Wilson</h3>
+          <p>"Affordable and professional service. My phone works perfectly now."</p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- FAQ Section -->
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <h3>How long does a repair take?</h3>
+          <p>Most repairs are completed within 24-48 hours.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do you offer a warranty?</h3>
+          <p>Yes, all repairs come with a 6-month warranty.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How much will it cost?</h3>
+          <p>Pricing depends on the issue. We offer free diagnostics.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What devices do you repair?</h3>
+          <p>We repair laptops, desktops, phones, tablets, and more.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do you offer on-site services?</h3>
+          <p>Yes, we provide on-site repairs and remote support.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Is my data safe during repair?</h3>
+          <p>Yes, we follow strict data privacy protocols.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do you fix water-damaged devices?</h3>
+          <p>Yes, we specialize in water damage repair.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can I schedule an appointment?</h3>
+          <p>Yes, you can contact us to schedule a convenient time.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do you sell replacement parts?</h3>
+          <p>No, but we can order and replace parts for you.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Where are you located?</h3>
+          <p>We’re located in Dallas. Visit our contact section for details.</p>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <div class="contact-form">
+        <form>
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required>
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+        <div class="social-media">
+          <p>Follow us on:</p>
+          <a href="https://facebook.com" target="_blank">Facebook</a> |
+          <a href="https://twitter.com" target="_blank">Twitter</a> |
+          <a href="https://instagram.com" target="_blank">Instagram</a> |
+          <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 ComputerFixDallas | Your Trusted Tech Repair Experts</p>
+      <p><a href="mailto:support@computerfixdallas.com">support@computerfixdallas.com</a> | (123) 456-7890</p>
+    </footer>
+  </body>
+  </html>
+  
